@@ -45,4 +45,5 @@ Durante o desenvolvimento deste projeto, aprendi:
 Integração com API de Detecção de Objetos: Como utilizar o Roboflow para carregar e executar modelos de detecção de objetos em vídeos.
 Processamento de Vídeo com OpenCV: Como ler e manipular vídeos frame a frame, além de desenhar caixas delimitadoras e adicionar rótulos.
 Aplicação Prática de YOLO: Como aplicar o modelo YOLO para detecção de objetos em tempo real, com foco no rastreamento de jogadores e outros elementos em vídeos de futebol.
+
 Este foi um projeto desafiador, mas extremamente recompensador. Ele me proporcionou uma compreensão mais profunda de como as técnicas de Visão Computacional podem ser aplicadas em problemas do mundo real, como análise de esportes e monitoramento de atividades.
