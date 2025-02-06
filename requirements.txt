@@ -1,0 +1,3 @@
+inference-cli
+opencv-python
+numpy
