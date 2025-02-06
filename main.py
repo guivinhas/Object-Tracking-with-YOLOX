@@ -19,6 +19,19 @@ client = InferenceHTTPClient(
     api_key=API_KEY
 )
 
+# Variáveis globais
+cap = None
+paused = False
+frame_count = 0
+start_time = time.time()
+
+# Função para atualizar a posição do vídeo com base na barra de progresso
+def on_trackbar(pos):
+    global frame_count
+    if cap is not None:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, pos)
+        frame_count = pos
+
 # Função para desenhar caixas delimitadoras com estilo
 def draw_boxes(frame, detections):
     for detection in detections:
@@ -41,13 +54,12 @@ def draw_boxes(frame, detections):
         # Desenha a caixa delimitadora
         cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
 
-        # Fundo semi-transparente para o rótulo
+        # Texto mais visível
         label_text = f"{label} {confidence:.2f}"
-        (label_width, label_height), _ = cv2.getTextSize(label_text, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 1)
-        cv2.rectangle(frame, (x1, y1 - label_height - 10), (x1 + label_width, y1), color, -1)
-
-        # Desenha o rótulo
-        cv2.putText(frame, label_text, (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1)
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        font_scale = 0.9  # Aumentei um pouco o tamanho
+        thickness = 2  # Aumentei a espessura
+        cv2.putText(frame, label_text, (x1, y1 - 10), font, font_scale, color, thickness, cv2.LINE_AA)
 
 # Função para processar o vídeo
 def process_video(video_path):
@@ -84,6 +96,9 @@ def process_video(video_path):
 
             # Exibe o frame
             cv2.imshow("YOLO Object Tracking", frame)
+
+            # Incrementa o contador de frames
+            frame_count += 1
 
         # Controles de teclado
         key = cv2.waitKey(1) & 0xFF
