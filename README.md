@@ -1,5 +1,6 @@
 # YOLO Object Tracking with Roboflow
 Este projeto foi desenvolvido com o objetivo de aprender e explorar o rastreamento de objetos em vídeos utilizando técnicas avançadas de Visão Computacional. Utilizando a API do Roboflow para detecção de objetos, o código aplica o YOLO para realizar o rastreamento de jogadores, bola e juízes em um vídeo de futebol.
+![image](https://github.com/user-attachments/assets/c895dd72-8401-47ae-a752-0d7acb50a530)
 
 # Tecnologias Utilizadas
 OpenCV: Usado para processamento de vídeo e exibição dos resultados em tempo real.
